@@ -44,6 +44,22 @@ app.post('/login', (req, res) => {
 	}
 })
 
+app.post('/age-limit', (req, res) => {
+	const age = req.body.age
+
+	if (age >= 21) {
+		res.json({
+			success: true,
+			message: 'You are at/over the age limit of 21 years old!'
+		})
+	} else {
+		res.json({
+			success: false,
+			message: 'You are under the age of 21'
+		})
+	}
+})
+
 app.listen(8000, () => {
 	console.log('Server is listening')
 })
